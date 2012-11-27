@@ -7,11 +7,11 @@ require "gan_shelanu/version"
 Gem::Specification.new do |s|
   s.name        = "gan_shelanu"
   s.version     = GanShelanu::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of GanShelanu."
-  s.description = "TODO: Description of GanShelanu."
+  s.authors     = ["Isaac Betesh"]
+  s.email       = ["iybetesh@gmail.com"]
+  s.homepage    = "https://github.com/betesh/gan_shelanu"
+  s.summary     = "Gan Shelanu backbone web application"
+  s.description = `cat README.rdoc`
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
