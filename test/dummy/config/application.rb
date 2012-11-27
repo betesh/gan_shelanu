@@ -54,6 +54,13 @@ module Dummy
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    domain = "___EDIT_ME_IN_config/application.rb___.com"
+    host = "www.#{domain}"
+    config.action_mailer.default_url_options = { :host => host }
+    config.action_mailer.smtp_settings = {
+      user_name: "contact_us@#{domain}",
+      address: host
+    }
   end
 end
 

@@ -64,4 +64,13 @@ Dummy::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings.merge!({
+    port: 25,
+    password: "EDIT_ME_IN_config/environments/production.rb",
+    openssl_verify_mode: 'none',
+    enable_start_tls_auto: true
+  })
 end
