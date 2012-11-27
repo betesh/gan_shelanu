@@ -6,7 +6,7 @@ class EmailFromUsers < ActionMailer::Base
   #
   #   en.email_from_users.contact_us.subject
   #
-  def contact_us
+  def contact_us contact
     @greeting = "Hi"
 
     mail to: "to@example.org"
