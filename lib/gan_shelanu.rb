@@ -5,4 +5,31 @@ require "gan_shelanu/simple_form"
 require "gan_shelanu/engine"
 
 module GanShelanu
+  class Configuration
+    attr_reader :recipient_emails
+    def send_email_from_users_to staff
+      @recipient_emails ||= []
+      @recipient_names ||= []
+      staff.each do |name, email|
+        @recipient_emails.push("#{name} <#{email}>")
+        @recipient_names.push(name)
+      end
+    end
+    def recipient_names
+      return @recipient_names[0] if 1 == @recipient_names.size
+      result = @recipient_names.join(', ')
+      *a, b = result.split(', ', -1)
+      a.join(', ')+' and '+b
+    end
+  end
+
+  class << self
+    def config
+      @config ||= Configuration.new
+    end
+  end
+
+  def self.configure
+    yield self.config
+  end
 end
