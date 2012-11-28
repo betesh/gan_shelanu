@@ -1,3 +1,7 @@
-EmailFromUsers#contact_us
+Hi, <%= GanShelanu.config.recipient_names %>!
 
-<%= @greeting %>, find me in app/views/app/views/email_from_users/contact_us.text.erb
+<%= @contact.name %>, who lives in <%= @contact.neighborhood %> and has a <%= @contact.child_age %>-year-old named <%= @contact.child_name %>, has sent you the following message:
+
+--------------------
+<%= @contact.message %>
+--------------------
