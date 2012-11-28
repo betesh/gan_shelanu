@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get "main/home"
-
-  get "main/contact_us"
-
+  controller :main do
+    get :home
+    post :contact_us
+  end
 end
