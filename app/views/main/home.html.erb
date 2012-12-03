@@ -1,2 +1,12 @@
-<h1>Main#home</h1>
-<p>Find me in app/views/main/home.html.erb</p>
+<%= eight_columns_centered do %>
+  <dl class="tabs">
+    <dd class="active"><%= tab_for :home %></dd>
+    <dd><%= tab_for :whoWeAre %></dd>
+    <dd class="hide-for-small"><%= tab_for :documents %></dd>
+  </dl>
+<% end %>
+<ul class="tabs-content">
+  <%= partial_in_tab :home, nil, :active %>
+  <%= partial_in_tab :whoWeAre %>
+  <%= partial_in_tab :documents, 'documents' %>
+</ul>

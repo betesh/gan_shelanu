@@ -1,5 +1,15 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  main:
+    titles: &titles
+      home_title: "Gan Shelanu"
+      who_we_are_title: "Who We Are"
+      documents_title: "Documents"
+    home:
+      <<: *titles
+    content:
+      <<: *titles
+      home_content: |
+        Etiam commodo lacus sed eros elementum gravida in id tellus. Aenean a dui a nulla dapibus fermentum non sed sapien. Vivamus dapibus dapibus libero, porttitor accumsan risus congue at. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris eget tortor diam. Nulla eu sem eu nibh aliquet fermentum eu pellentesque mauris. Etiam ac enim viverra dui adipiscing gravida et a diam. Cras mi arcu, pellentesque vel egestas eget, euismod quis lacus. Proin ullamcorper pulvinar nibh, at laoreet enim semper semper. Quisque quis odio vel est pellentesque venenatis ut et purus.
+      who_we_are_content: |
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis elit eros, molestie id porta a, dictum luctus sapien. Etiam vitae enim et justo mattis luctus sed ut risus. Ut quis libero diam. Etiam eget blandit justo. Pellentesque scelerisque nunc ac tortor mollis convallis. Nam fringilla facilisis sapien ac tempus. Etiam sed lacinia tellus. Donec eget dui a odio congue faucibus id ac mauris. Nulla eros odio, sodales sed volutpat eu, gravida sed nisi. Vivamus velit tortor, blandit vel posuere quis, imperdiet ac nulla.
+        Vestibulum lobortis auctor laoreet. Aenean vulputate, tortor id posuere aliquet, nisi urna vestibulum tellus, ac suscipit libero ante nec orci. Sed vitae suscipit lectus. Proin ac sapien augue, et dapibus lorem. Proin facilisis tincidunt erat quis bibendum. Phasellus ultrices mollis dapibus. Maecenas molestie dapibus bibendum. Duis magna lectus, sagittis vitae viverra eu, lobortis eu augue. Suspendisse vitae gravida erat.

@@ -1,0 +1,6 @@
+<%= centered_title(title_for(content)) %>
+<% if template %>
+  <%= render :partial => template %>
+<% else %>
+  <%= eight_columns_centered do; split_as_paragraphs(t(".#{content.to_s.underscore}_content")); end %>
+<% end %>
