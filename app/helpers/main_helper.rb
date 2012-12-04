@@ -1,4 +1,11 @@
 module MainHelper
+  def active_dd condition, &block
+    args = {}
+    args[:class] = :active if condition
+    content_tag :dd, args do
+      yield
+    end
+  end
   def centered_title text
     (content_tag :h2, :class => 'four columns centered' do; text; end).html_safe
   end

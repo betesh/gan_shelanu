@@ -1,0 +1,9 @@
+<div class='alert-box alert'>
+  <% if instance.errors.any? %>
+    <div id="error_explanation">
+      <h5>Please correct the following <%= pluralize(instance.errors.count, "error") %>:</h5>
+      <ul><% instance.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %></ul>
+    </div>
+  <% end %>
+  <a href='' class="close">&times;</a>
+</div>

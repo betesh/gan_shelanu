@@ -1,0 +1,18 @@
+<%= simple_form_for @contact, :url => contact_us_path do |f| %>
+  <%= content_tag :div, class: 'row' do %>
+    <%= content_tag :div, class: 'two columns' do; end %>
+    <%= content_tag :div, class: 'three columns' do %>
+      <%= f.input :name %>
+      <%= f.input :child_name %>
+      <%= f.input :child_age %>
+      <%= f.input :neighborhood %>
+      <%= f.input :email, :as => :email %>
+      <%= f.input :subject %>
+    <% end %>
+    <%= content_tag :div, class: 'five columns' do %>
+      <%= f.input :message, :as => :text %>
+      <%= f.button :submit, t('simple_form.labels.contact.submit'), :id => 'contact_us_submit' %>
+    <% end %>
+    <%= content_tag :div, class: 'two columns' do; end %>
+  <% end %>
+<% end %>

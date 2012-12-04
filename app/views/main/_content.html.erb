@@ -1,4 +1,13 @@
 <%= centered_title(title_for(content)) %>
+<%= eight_columns_centered do %>
+  <div id="alert-box-container">
+    <% if contact_us_failure && :contactUs == content.to_sym %>
+      <%= render 'errors' %>
+    <% elsif contact_us_action && :home == content.to_sym %>
+      <%= render 'success' %>
+    <% end %>
+  </div>
+<% end %>
 <% if template %>
   <%= render :partial => template %>
 <% else %>

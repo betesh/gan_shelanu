@@ -1,0 +1,8 @@
+$('li#contactUsTab div.alert-box.alert a.close').trigger('click');
+$('li#homeTab div.alert-box.success.contactUs a.close').trigger('click');
+<% if @contact.invalid? %>
+  $('li#contactUsTab div#alert-box-container').append('<%= escape_javascript render 'errors' %>');
+<% else %>
+  $('a[href="#home"]').trigger('click');
+  $('li#homeTab div#alert-box-container').append('<%= escape_javascript render 'success' %>');
+<% end %>

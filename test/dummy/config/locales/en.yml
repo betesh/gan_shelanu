@@ -1,8 +1,20 @@
 en:
+  simple_form:
+    labels:
+      contact:
+        name: 'Name'
+        child_name: 'Child Name'
+        child_age: 'Child Age'
+        neighborhood: 'Neighborhood'
+        subject: 'Subject'
+        email: 'Email'
+        message: 'Message'
+        submit: 'Send'
   main:
     titles: &titles
       home_title: "Gan Shelanu"
       who_we_are_title: "Who We Are"
+      contact_us_title: "Contact Us"
       documents_title: "Documents"
     home:
       <<: *titles
