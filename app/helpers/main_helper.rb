@@ -37,4 +37,9 @@ module MainHelper
   def title_for id
     t(".#{id.to_s.underscore}_title").html_safe
   end
+  def additional_tabs &block
+    GanShelanu.config.additional_tabs.each { |id, template|
+      yield id, template
+    }
+  end
 end

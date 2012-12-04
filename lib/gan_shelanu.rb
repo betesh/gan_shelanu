@@ -7,6 +7,7 @@ require "gan_shelanu/engine"
 module GanShelanu
   class Configuration
     attr_reader :recipient_emails
+    attr_reader :additional_tabs
     def send_email_from_users_to staff
       @recipient_emails ||= []
       @recipient_names ||= []
@@ -20,6 +21,9 @@ module GanShelanu
       result = @recipient_names.join(', ')
       *a, b = result.split(', ', -1)
       a.join(', ')+' and '+b
+    end
+    def add_tabs tabs
+      (@additional_tabs ||= {}).merge!(tabs)
     end
   end
 

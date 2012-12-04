@@ -3,7 +3,9 @@
     <%= active_dd(!contact_us_failure) do %>
       <%= tab_for :home %>
     <% end %>
-    <dd><%= tab_for :whoWeAre %></dd>
+    <% additional_tabs do |id, template| %>
+      <dd><%= tab_for id %></dd>
+    <% end %>
     <%= active_dd(contact_us_failure) do %>
       <%= tab_for :contactUs %>
     <% end %>
@@ -12,7 +14,9 @@
 <% end %>
 <ul class="tabs-content">
   <%= partial_in_tab :home, nil, (contact_us_failure ? nil : :active) %>
-  <%= partial_in_tab :whoWeAre %>
+  <% additional_tabs do |id, template| %>
+    <%= partial_in_tab id, template %>
+  <% end %>
   <%= partial_in_tab :contactUs, 'contact_us', (contact_us_failure ? :active : nil) %>
   <%= partial_in_tab :documents, 'documents' %>
 </ul>

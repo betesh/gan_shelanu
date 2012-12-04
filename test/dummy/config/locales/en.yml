@@ -15,6 +15,7 @@ en:
       home_title: "Gan Shelanu"
       who_we_are_title: "Who We Are"
       contact_us_title: "Contact Us"
+      mission_title: "Our Mission"
       documents_title: "Documents"
     home:
       <<: *titles
