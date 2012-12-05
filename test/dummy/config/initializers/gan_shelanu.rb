@@ -4,4 +4,5 @@ GanShelanu.configure do |config|
                                   "Miss Brown"  => "miss.brown@#{domain}",
                                   "Miss Purple" => "miss.purple@#{domain}"
   config.add_tabs :whoWeAre, :mission
+  config.add_contact_us_fields :name, :child_name, :child_age, :neighborhood
 end

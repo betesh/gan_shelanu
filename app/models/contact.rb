@@ -1,12 +1,10 @@
 require 'validates_email_format_of'
 
 class Contact
-  ATTRIBUTES = [:email, :name, :subject, :child_name, :child_age, :neighborhood, :message]
-
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  ATTRIBUTES.each do |attr|
+  GanShelanu.config.contact_us_fields.each do |attr|
     attr_accessor attr
     validates attr, presence: true
   end

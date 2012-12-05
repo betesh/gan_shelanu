@@ -6,12 +6,18 @@ require "gan_shelanu/simple_form"
 require "gan_shelanu/engine"
 
 module GanShelanu
+  STANDARD_CONTACT_US_FIELDS = [:email, :subject, :message]
   class Configuration
     attr_reader :recipient_emails
     attr_reader :additional_tabs
-    def send_email_from_users_to staff
+    attr_reader :contact_us_fields
+    def initialize
       @recipient_emails ||= []
       @recipient_names ||= []
+      @additional_tabs ||= []
+      @contact_us_fields ||= STANDARD_CONTACT_US_FIELDS.dup
+    end
+    def send_email_from_users_to staff
       staff.each do |name, email|
         @recipient_emails.push("#{name} <#{email}>")
         @recipient_names.push(name)
@@ -24,8 +30,10 @@ module GanShelanu
       a.join(', ')+' and '+b
     end
     def add_tabs *tabs
-      @additional_tabs ||= []
       tabs.each { |tab| @additional_tabs << tab }
+    end
+    def add_contact_us_fields *fields
+      fields.each { |f| @contact_us_fields << f }
     end
   end
 

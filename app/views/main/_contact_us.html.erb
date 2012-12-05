@@ -2,10 +2,9 @@
   <%= content_tag :div, class: 'row' do %>
     <%= content_tag :div, class: 'two columns' do; end %>
     <%= content_tag :div, class: 'three columns' do %>
-      <%= f.input :name %>
-      <%= f.input :child_name %>
-      <%= f.input :child_age %>
-      <%= f.input :neighborhood %>
+      <% (GanShelanu.config.contact_us_fields.reject { |k| GanShelanu::STANDARD_CONTACT_US_FIELDS.include?(k) }).each do |k| %>
+        <%= f.input k %>
+      <% end %>
       <%= f.input :email, :as => :email %>
       <%= f.input :subject %>
     <% end %>

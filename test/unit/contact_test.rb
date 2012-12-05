@@ -22,7 +22,7 @@ class ContactTest < ActiveSupport::TestCase
     assert_equal [message], @contact.errors.messages[attr], @contact.errors.messages
   end
 
-  Contact::ATTRIBUTES.each do |attr|
+  GanShelanu.config.contact_us_fields.each do |attr|
     requires_attribute attr
   end
   test_invalid_email_format "12345"
