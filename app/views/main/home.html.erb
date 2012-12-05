@@ -1,16 +1,14 @@
-<%= eight_columns_centered do %>
-  <dl class="tabs">
-    <%= active_dd(!contact_us_failure) do %>
-      <%= tab_for :home %>
-    <% end %>
-    <% additional_tabs do |id| %>
-      <dd><%= tab_for id %></dd>
-    <% end %>
-    <%= active_dd(contact_us_failure) do %>
-      <%= tab_for :contactUs %>
-    <% end %>
-    <dd class="hide-for-small"><%= tab_for :documents %></dd>
-  </dl>
+<%= full_width_tabs do %>
+  <%= active_dd(!contact_us_failure) do %>
+    <%= tab_for :home %>
+  <% end %>
+  <% additional_tabs do |id| %>
+    <dd><%= tab_for id %></dd>
+  <% end %>
+  <%= active_dd(contact_us_failure) do %>
+    <%= tab_for :contactUs %>
+  <% end %>
+  <dd class="hide-for-small"><%= tab_for :documents %></dd>
 <% end %>
 <ul class="tabs-content">
   <%= partial_in_tab :home, (contact_us_failure ? nil : :active) %>

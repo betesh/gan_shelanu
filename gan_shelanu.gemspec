@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "easy_rails_authentication", "~> 0.0.7"
   s.add_dependency "zurb-foundation", "~> 3.2.2"
   s.add_dependency "compass-rails", "~> 1.0"
+  s.add_dependency "numbers_and_words"
   s.add_dependency "simple_form", "~> 2.0"
   s.add_dependency "validates_email_format_of", "~> 1.5.3"
   # s.add_dependency "jquery-rails"

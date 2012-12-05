@@ -4,6 +4,7 @@ PATH
     gan_shelanu (0.0.1)
       compass-rails (~> 1.0)
       easy_rails_authentication (~> 0.0.7)
+      numbers_and_words
       rails (~> 3.2.9)
       simple_form (~> 2.0)
       validates_email_format_of (~> 1.5.3)
@@ -86,6 +87,9 @@ GEM
       compass (>= 0.11.5)
       sassy-math (>= 1.2)
     multi_json (1.4.0)
+    numbers_and_words (0.5.0)
+      activesupport
+      i18n
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)

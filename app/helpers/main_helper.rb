@@ -9,6 +9,19 @@ module MainHelper
   def centered_title text
     (content_tag :h2, :class => 'four columns centered' do; text; end).html_safe
   end
+  def full_width_tabs &block
+    tab_count = 3
+    tab_count += GanShelanu.config.additional_tabs.count unless GanShelanu.config.additional_tabs.nil?
+    column_count = 2 * tab_count - 2
+    column_count -= 1 if tab_count > 6
+    (content_tag :div, :class => 'row' do
+      content_tag :div, :class => "#{column_count.to_words} columns centered" do
+        content_tag :dl, :class => "tabs #{tab_count.to_words}-up" do
+          yield
+        end
+      end
+    end).html_safe
+  end
   def eight_columns_centered &block
     (content_tag :div, :class => 'row' do
       content_tag :div, :class => 'eight columns centered' do
