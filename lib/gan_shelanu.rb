@@ -22,8 +22,9 @@ module GanShelanu
       *a, b = result.split(', ', -1)
       a.join(', ')+' and '+b
     end
-    def add_tabs tabs
-      (@additional_tabs ||= {}).merge!(tabs)
+    def add_tabs *tabs
+      @additional_tabs ||= []
+      tabs.each { |tab| @additional_tabs << tab }
     end
   end
 

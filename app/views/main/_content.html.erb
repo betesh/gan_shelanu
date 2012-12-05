@@ -1,15 +1,16 @@
-<%= centered_title(title_for(content)) %>
+<%= centered_title(title_for(tab)) %>
 <%= eight_columns_centered do %>
   <div id="alert-box-container">
-    <% if contact_us_failure && :contactUs == content.to_sym %>
+    <% if contact_us_failure && :contactUs == tab.to_sym %>
       <%= render 'errors' %>
-    <% elsif contact_us_action && :home == content.to_sym %>
+    <% elsif contact_us_action && :home == tab.to_sym %>
       <%= render 'success' %>
     <% end %>
   </div>
 <% end %>
-<% if template %>
-  <%= render :partial => template %>
+<% tab = tab.to_s.underscore %>
+<% if lookup_context.template_exists?(tab, 'main', true) %>
+  <%= render :partial => tab %>
 <% else %>
-  <%= eight_columns_centered do; split_as_paragraphs(t(".#{content.to_s.underscore}_content")); end %>
+  <%= eight_columns_centered do; split_as_paragraphs(t(".#{tab}_content")); end %>
 <% end %>

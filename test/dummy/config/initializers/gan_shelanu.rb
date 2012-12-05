@@ -3,5 +3,5 @@ GanShelanu.configure do |config|
   config.send_email_from_users_to "Miss Green"  => "miss.green@#{domain}",
                                   "Miss Brown"  => "miss.brown@#{domain}",
                                   "Miss Purple" => "miss.purple@#{domain}"
-  config.add_tabs :whoWeAre => nil, :mission => 'mission'
+  config.add_tabs :whoWeAre, :mission
 end

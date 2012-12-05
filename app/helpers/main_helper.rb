@@ -16,9 +16,9 @@ module MainHelper
       end
     end).html_safe
   end
-  def partial_in_tab id, template=nil, active=nil
+  def partial_in_tab id, active=nil
     li_with_options id, active do
-      render :partial => 'content', :locals => { :content => id, :template => template }
+      render :partial => 'content', :locals => { :tab => id }
     end
   end
   def split_as_paragraphs text
@@ -38,8 +38,9 @@ module MainHelper
     t(".#{id.to_s.underscore}_title").html_safe
   end
   def additional_tabs &block
-    GanShelanu.config.additional_tabs.each { |id, template|
-      yield id, template
+    return if GanShelanu.config.additional_tabs.nil?
+    GanShelanu.config.additional_tabs.each { |id|
+      yield id
     }
   end
 end
