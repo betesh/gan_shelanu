@@ -1,3 +1,103 @@
 = GanShelanu
 
-This project rocks and uses MIT-LICENSE.
+Gan Shelanu is that simple but profound website template we've all been waiting for.
+
+Its simplicity makes it so easy to get a Ruby-on-Rails 3.2 website up and running in almost no time.
+
+== Installation
+
+Installation is just a few easy steps:
+ - Installing the gem
+ - Setting up your application to work with GanShelanu
+ - Configuring Gan Shelanu
+ - Update your layout
+ - Update your locales
+
+=== Installing the gem
+
+Add `gem "gan_shelanu"` to your Gemfile and `bundle install`.
+
+=== Setting up your application to work with GanShelanu
+
+* Configure `config.action_mailer.default_url_options` and `config.action_mailer.smtp_settings` in `config/application.rb` and/or `config/environments/`
+* Create initializers for easy_rails_authentication (a plugin that this engine depends on) and gan_shelanu in config/initializers.
+  * For easy_rails_authentication, see example at {its Github page}[https://github.com/betesh/easy_rails_authentication/blob/master/test/dummy/config/initializers/easy_rails_authentication.rb]
+  * For gan_shelanu, see example at {its Github page}[https://github.com/betesh/gan_shelanu/blob/master/test/dummy/config/initializers/gan_shelanu.rb]
+* In config/routes.rb, add the lines `root :to => 'main#home'` to your routes.
+* Add `//= require gan_shelanu` to app/assets/javascripts/application.js
+* Add `*= require gan_shelanu` to app/assets/stylesheets/application.css
+* Add EasyRailsAuthentication to your ApplicationController.  See example at {its Github page}[https://github.com/betesh/easy_rails_authentication/blob/master/test/dummy/app/controllers/application_controller.rb]
+* Installing migrations: `rake easy_rails_authentication_engine:install:migrations` and `rake db:migrate`
+
+=== Configuring Gan Shelanu
+
+`GanShelanu.config` supports the following options:
+
+`send_email_from_users_to`: This should be a hash of users who should receive the e-mails that are sent from the 'Contact Us' form.  Use names as keys and e-mail addresses as values.
+
+`add_tabs`: This is how you add tabs.  Pass as many arguments as you want.  Each one will be the name of a tab.  See link:#adding-tabs below.
+
+`add_contact_us_fields`: Any additional fields that should show up on the "Contact Us" page.  (Built-in fields are email, subject and message.)
+
+=== Update your layout
+
+Make things look pretty by customizing app/views/layout/application.html.erb.  Add some images.  Make it look nice.  Have fun!
+
+=== Update your locales
+
+GanShelanu supports I18n.  This is what a typical locales file should look like:
+  en:
+    simple_form:
+      labels:
+        contact:
+          subject: 'Subject'
+          email: 'Email'
+          message: 'Message'
+          submit: 'Send'
+    main:
+      titles: &titles
+        home_title: "Gan Shelanu"
+        contact_us_title: "Contact Us"
+        documents_title: "Documents"
+      home:
+        <<: *titles
+      content:
+        <<: *titles
+
+The 'simple_form' section is for the labels on the "Contact Us" form.  This entire section is optional since simple_form infers labels when no translations are provided.
+
+The 'main' section is where you set the titles of tabs.  These will __*not*__ be inferred if omitted.
+
+== Creating tab content
+
+Gan Shelanu ships out-of-the-box with 3 tabs: Home, Contact Us, and Documents.  Contact Us and Documents have out-of-the-box content.  Home has no content yet, so you can add some in one of two ways:  Create a view, or place content in the locales file.
+
+=== Create a view
+
+Create a folder call app/views/main.  In that folder, create a file called '_home.html.erb'.  It should look like this:
+
+    <%= eight_columns_centered do %> # A helper for getting the spacing right
+      <p>Put some content here</p>
+      <p>Put some more content here</p>
+    <% end %>
+
+=== Place content in the locales files
+
+If all you want on a tab is some text, you can add place the text in config/locales nested in main.content.  For example:
+
+    en:
+      main:
+        content:
+          <<: *titles
+          home_content: |
+            Pleace content here.
+            Content can be multiple paragraphs as long as you include the '|' after 'home_content'.
+
+=== Adding tabs
+Now that you've added content for your home tab, you can do the same for any tabs that you configured using `config.add_rows`.
+
+For instance, if your configuration file has this code:
+
+    config.add_tabs :whoWeAre
+
+Then you could create a file called '_who_we_are.html.erb' in 'app/views/main' or add content to the locale file just as in the above 'home_content' example.  Just name it 'who_we_are_content'.
